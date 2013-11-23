@@ -1,7 +1,8 @@
 from django.db import models
+from user_prof import TeamMember
 
 class PastProject(models.Model):
-        name = CharField(max_length=128)
+        name = models.CharField(max_length=128)
         url = models.URLField()
         description = models.TextField()
 
@@ -9,8 +10,16 @@ class PastProject(models.Model):
                 return self.name
 
 class ProjectPage(models.Model):
-        name = models.CharField( max_length=128 )
+	#splash bar
+        title = models.CharField(max_length=128)
+	typeOfProject = None
+	location = models.CharField(max_length=256)
+	#bottom
         pitchVid = models.URLField()
-        description = TextField()
-        team = models.ForeignKey(TeamMember)
-        ranking = None
+        description = models.TextField()
+        team = ddmodels.ForeignKey(TeamMember)
+
+class Team(models.Model):
+	roleName = models.CharField(max_length=128)
+	roleDesc = models.TextField()
+	requirements = models.ForeignKey()
