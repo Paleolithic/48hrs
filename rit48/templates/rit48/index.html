@@ -1,10 +1,12 @@
+{% load static %}
+<!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>The Boyle Broth</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/base.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/layout.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/skeleton.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/skeleton.css' %}">
 </head>
 <style>
 	#bg {
@@ -71,7 +73,7 @@
 <body>
 
 <div id="bg">
-  <img src="assets/images/1_scaled.jpg" alt="">
+	<img src="{% static 'images/1_scaled.jpg' %}" alt="">
 </div>
 <div id='header'>
 	<div class='container'>
@@ -105,21 +107,15 @@
 		<p>Swearem ipsum dolor arse amet, consectetur adipiscing elit. Aliquam scelerisque accumsan nisl, a mattis eros vestibulum et. Vestibulum placerat purus ut nibh aliquam ballbag. Aenean et tortor diam, id tempor elit. Vivamus sagittis ornare tempor. Nullam lacinia metus fuck diam tempor dick consequat ligula porttitor. Vestibulum mollis pellentesque hendrerit. Sed faucibus venenatis wee. Bastard ut gravida metus. Nam sed neque magna, in fermentum ligula. Praesent a diam tincidunt odio semper consequat.</p>
 	</div>
 	<div class='six columns offset-by-one'>
-		<form action="/register/" method="post">
-			<h3>Register</h3>
-			<label for="regularInput">Your name:</label>
-			<input type="text" placeholder="Bob Saget" id="regularInput" />
-
-			<label for="regularInput">Your email:</label>
-			<input type="text" placeholder="bob@saget.com" id="regularInput" />
-
-			<label for="regularInput">Your password:</label>
-			<input type="text" placeholder="Password..." id="regularInput" />
-
-			<label for="regularInput">Confirm your password:</label>
-			<input type="text" placeholder="Confirm password..." id="regularInput" />
+		<h3>Register</h3>
+		{% if registered %}
+			<strong>Thanks for registering!</strong>
+		{% else %}
+		<form action="/register/" method="post">{% csrf_token %}
+			{{ user_form.as_p }}
 			<input type="submit" value="Submit" />
 		</form>
+		{% endif %}
 	</div>
 
 </div>

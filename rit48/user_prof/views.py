@@ -4,18 +4,25 @@ from django.shortcuts import render_to_response
 from user_prof.forms import UserForm
 from user_prof.models import UserPage
 
-def index(request):
+def register(request):
 	context = RequestContext(request)
 
+	registered = False
 	if request.method == 'POST':
-		form = UserForm(request.POST)
-		if form.is_valid():
-			form.save(commit=True)
-			return index(request)
+		user_form = UserForm(data=request.POST)
+		if user_form.is_valid():
+			user = user_form.save()
+			user.set_password(user.password)
+			user.save()
+			registered = True
 		else:
-			print form.errors
+			print user.forms.errors
 	else:
-		return render_to_response('rit48/index.html', {}, context)
+		user_form = UserForm()
+	return render_to_response(
+			'rit48/index.html',
+			{'user_form': user_form, 'registered': registered},
+			context)
 
 
 def userPage(request, user_name):
@@ -28,11 +35,11 @@ def userPage(request, user_name):
 				'major': user.major,
 				'location': user.location,
 				'bio': user.bio,
-				'available', user.available,
-				'team': user.UserPage_set.all()
-				'projects': user.PastProject_set.all()
-				'skills': user.RankedSkill_set.all()
-				'rank': user.Rank_set.all()
+				'available': user.available,
+				'team': user.UserPage_set.all(),
+				'projects': user.PastProject_set.all(),
+				'skills': user.RankedSkill_set.all(),
+				'rank': user.Rank_set.all(),
 				}
 
 	except UserPage.DoesNotExist:

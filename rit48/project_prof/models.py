@@ -1,5 +1,5 @@
 from django.db import models
-from user_prof import TeamMember
+#from user_prof import TeamMember
 
 class PastProject(models.Model):
         name = models.CharField(max_length=128)
@@ -17,9 +17,9 @@ class ProjectPage(models.Model):
 	#bottom
         pitchVid = models.URLField()
         description = models.TextField()
-        team = ddmodels.ForeignKey(TeamMember)
+        #team = models.ForeignKey(TeamMember)
 
 class Team(models.Model):
 	roleName = models.CharField(max_length=128)
 	roleDesc = models.TextField()
-	requirements = models.ForeignKey()
+#	requirements = models.ForeignKey()
