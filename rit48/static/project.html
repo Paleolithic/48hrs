@@ -1,0 +1,248 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>The Boyle Broth</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/base.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/layout.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/skeleton.css">
+</head>
+<style>
+	body{
+		background-color: #ECECEC;
+	}
+	hr{
+		margin: 0 0 10px 0;
+	}
+
+	#header{
+		position: fixed;
+		background-color: rgb(55,55,55);
+		z-index: 999;
+		width: 100%;
+	}
+		#header *{
+			color: white;
+		}
+		#header h2{
+			margin-top: 10px;
+		}
+		#header input{
+			margin-top: 15px;
+			color: black;
+		}
+
+		.nav{
+			margin: 20px 0 0 0;
+		}
+			.nav li{
+				display: inline;
+				margin: 0 20px 0 0;
+				float: right;
+			}
+			.nav a{
+				text-decoration: none;
+			}
+			.nav a:hover{
+				text-decoration: underline;
+			}
+
+	#content{
+		margin-top: 75px;
+	}
+		#search{
+			background-color: black;
+			height: 100%;
+
+		}
+			#search *{
+				color: white;
+			}
+			#search #skills{
+				width: 80%;
+			}
+
+		.item {
+			height: 150px;
+			margin-bottom: 15px;
+			box-shadow: 4px 4px 5px #888888;
+		}
+		.item:hover{
+			box-shadow: 4px 9px 5px  #888888;
+			margin-top: -5px;
+	        margin-bottom: 20px;
+			-webkit-transition: all 200ms linear;
+	        -moz-transition: all 200ms linear;
+	        -o-transition: all 200ms linear;
+	        -ms-transition: all 200ms linear;
+	        transition: all 200ms linear;
+			-webkit-animation: item_bounce 0.5s ease-in-out;
+			
+		}
+			.item *{
+				color: white !important;
+				text-shadow: -1px 1px #222222;
+			}
+			.item .alpha{
+				margin-left: 5px;
+			}
+			.item h2{
+				position: relative;
+				margin: 22px 0 0 0;
+			}
+			.item h4{
+				width: 94%;
+				margin: 0;
+				padding: 0;
+				float: right;
+			}
+			.item img{
+				margin-top: 3px;
+			}
+			.item h5{
+				margin: 70% 0 0 0px;
+				float: right;
+				display: inline;
+			}
+
+
+
+</style>
+<body>
+
+<div id='header'>
+	<div class='container'>
+		<div class='four columns'>
+			<h2>ProjectPond</h2>
+		</div>
+		<div class='three columns'>
+			<input type="text" placeholder="Search here..." id="regularInput" />
+		</div>
+		<div class='four columns nav'>
+			<ul>
+				<li><a href='#'>Projects</a></li>
+				<li><a href='#'>People</a></li>
+			</ul>
+		</div>
+		<div class='five columns nav'>
+			<ul>
+				<li><a href='#'>Signup</a></li>
+				<li><a href='#'>Login</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<hr>
+
+<div class ='container' id='content'>
+	<div class='three columns' id='search'>
+		<h3>Filter By:</h3>
+		<h4>Skills</h4>
+		<fieldset>
+			<label for="">Type</label>
+			<label for="regularRadio">
+				<input type="radio" name="radios" id="regularRadio" value="radio 1" />
+				<span>People</span>
+			</label>
+			<label for="regularRadio">
+				<input type="radio" name="radios" id="regularRadio" value="radio 2" />
+				<span>Projects</span>
+			</label>
+			<label for="">Type</label>
+			<label for="regularRadio">
+				<input type="radio" name="radios" id="regularRadio" value="radio 1" />
+				<span>" 1 year"</span>
+			</label>
+			<label for="regularRadio">
+				<input type="radio" name="radios" id="regularRadio" value="radio 2" />
+				<span>Projects</span>
+			</label>
+			<label for="">Type</label>
+			<label for="regularRadio">
+				<input type="radio" name="radios" id="regularRadio" value="radio 1" />
+				<span>People</span>
+			</label>
+			<label for="regularRadio">
+				<input type="radio" name="radios" id="regularRadio" value="radio 2" />
+				<span>Projects</span>
+			</label>
+			<input type="text" placeholder="Search here..." id="skills" />
+
+		    <label for="">Checkboxes</label>
+		    <label for="regularCheckbox">
+		      <input type="checkbox" id="regularCheckbox" value="checkbox 1" />
+		      <span>Regular Checkbox</span>
+		    </label>
+		 
+		    <label for="secondRegularCheckbox">
+		      <input type="checkbox" id="secondRegularCheckbox" value="checkbox 2" />
+		      <span>Regular Checkbox</span>
+		    </label>
+		</fieldset>
+	</div>
+	<div class='thirteen columns' id='items'>
+		<div class='thirteen columns item' style="background-image: url('assets/images/1_scaled.jpg');">
+			<div class='nine columns'>
+				<h2>Shitty website 2.0</h2>
+				<h4>Software projects</h4>
+				<img src='assets/images/clipboard.png'/>
+				<h4>Team of 6</h4>
+				<img src='assets/images/team.png'/>
+			</div>
+			<div class='three columns'>
+				<h5>Rochester, NY</h5>
+			</div>
+		</div>
+		<div class='thirteen columns item' style="background-image: url('assets/images/sunset.jpg');">
+			<div class='nine columns'>
+				<h2>Shitty website 2.0</h2>
+				<h4>Software projects</h4>
+				<img src='assets/images/clipboard.png'/>
+				<h4>Team of 6</h4>
+				<img src='assets/images/team.png'/>
+			</div>
+			<div class='three columns'>
+				<h5>Rochester, NY</h5>
+			</div>
+		</div>
+		<div class='thirteen columns item' style="background-image: url('assets/images/2.jpg');">
+			<div class='nine columns'>
+				<h2>Shitty website 2.0</h2>
+				<h4>Software projects</h4>
+				<img src='assets/images/clipboard.png'/>
+				<h4>Team of 6</h4>
+				<img src='assets/images/team.png'/>
+			</div>
+			<div class='three columns'>
+				<h5>Rochester, NY</h5>
+			</div>
+		</div>
+		<div class='thirteen columns item'  style="background-image: url('assets/images/3.jpg');">
+			<div class='nine columns'>
+				<h2>Shitty website 2.0</h2>
+				<h4>Software projects</h4>
+				<img src='assets/images/clipboard.png'/>
+				<h4>Team of 6</h4>
+				<img src='assets/images/team.png'/>
+			</div>
+			<div class='three columns'>
+				<h5>Rochester, NY</h5>
+			</div>
+		</div>
+		<div class='thirteen columns item' style="background-image: url('assets/images/4.jpg');">
+			<div class='nine columns alpha'>
+				<h2>Shitty website 2.0</h2>
+				<h4>Software projects</h4>
+				<img src='assets/images/clipboard.png'/>
+				<h4>Team of 6</h4>
+				<img src='assets/images/team.png'/>
+			</div>
+			<div class='three columns omega'>
+				<h5>Rochester, NY</h5>
+			</div>
+		</div>
+	</div>
+</div>
+
+</body>
+</html>

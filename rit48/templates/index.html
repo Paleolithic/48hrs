@@ -1,0 +1,118 @@
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>The Boyle Broth</title>
+	<link rel="stylesheet" type="text/css" href="assets/css/base.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/layout.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/skeleton.css">
+</head>
+<style>
+	#bg {
+	  position: fixed; 
+	  top: -50%; 
+	  left: -50%; 
+	  width: 200%; 
+	  height: 200%;
+	}
+	#bg img {
+	  position: absolute; 
+	  top: 0; 
+	  left: 0; 
+	  right: 0; 
+	  bottom: 0; 
+	  margin: auto; 
+	  min-width: 50%;
+	  min-height: 50%;
+	}
+	
+	hr{
+		margin: 0 0 10px 0;
+	}
+
+	#header{
+		position: relative;
+		background-color: white;
+		width: 100%;
+	}
+		#header h2{
+			margin-top: 10px;
+		}
+		#header input{
+			margin-top: 15px;
+		}
+
+	.nav{
+		margin: 20px 0 0 0;
+	}
+		.nav li{
+			display: inline;
+			margin: 0 20px 0 0;
+			float: right;
+		}
+		.nav a{
+			text-decoration: none;
+		}
+		.nav a:hover{
+			text-decoration: underline;
+		}
+
+	#splash{
+		top: 20%;
+		color: white;
+	}
+		#splash h1{
+			margin-bottom: 4px;
+		}
+		#splash input{
+			margin-bottom: 6px;
+			width: 100%;
+		}
+</style>
+<body>
+
+<div id="bg">
+  <img src="assets/images/1_scaled.jpg" alt="">
+</div>
+<div id='header'>
+	<div class='container'>
+		<div class='four columns' id='title'>
+			<h2>ProjectPond</h2>
+		</div>
+		<div class='three columns'>
+			<input type="text" placeholder="Search here..." id="regularInput" />
+		</div>
+		<div class='four columns nav'>
+			<ul>
+				<li><a href='#'>Projects</a></li>
+				<li><a href='#'>People</a></li>
+			</ul>
+		</div>
+		<div class='five columns nav'>
+			<ul>
+				<li><a href='#'>Signup</a></li>
+				<li><a href='#'>Login</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<hr>
+
+<div class='container' id='splash'>
+	<div class='nine columns'>
+		<h1>ProjectPond</h1>
+		<h4>Find collaborators. Create collaborations.</h4>
+		<p>Swearem ipsum dolor arse amet, consectetur adipiscing elit. Aliquam scelerisque accumsan nisl, a mattis eros vestibulum et. Vestibulum placerat purus ut nibh aliquam ballbag. Aenean et tortor diam, id tempor elit. Vivamus sagittis ornare tempor. Nullam lacinia metus fuck diam tempor dick consequat ligula porttitor. Vestibulum mollis pellentesque hendrerit. Sed faucibus venenatis wee. Bastard ut gravida metus. Nam sed neque magna, in fermentum ligula. Praesent a diam tincidunt odio semper consequat.</p>
+	</div>
+	<div class='six columns offset-by-one'>
+		<h3>Register</h3>
+		<form action="/register/" method="post">{% csrf_token %}
+			{{ form.as_p }}
+			<input type="submit" value="Submit" />
+		</form>
+	</div>
+
+</div>
+
+</body>
+</html>
