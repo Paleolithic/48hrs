@@ -1,0 +1,169 @@
+body{
+		background-color: #ECECEC;
+}
+
+a{
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: underline;
+}
+
+#header{
+	position: fixed;
+	top: 0;
+	background-color: white;
+	z-index: 998;
+	width: 100%;
+	border-bottom: 1px solid black;
+
+}
+	#header *{
+		color: black;
+	}
+	#header h2{
+		margin-top: 10px;
+		border-right: 1px;
+	}
+	#header input{
+		margin-top: 15px;
+		color: black;
+	}
+
+	.nav{
+		margin: 20px 0 0 0;
+
+	}
+		.nav li{
+			display: inline;
+			margin: 0 20px 0 0;
+			float: right;
+		}
+			#registration a{
+				font-size: 8pt;
+				color: #0096bb;
+			}
+		
+
+#content{
+	margin-top: 75px;
+}
+	#search{
+		padding-top: 10px;
+		background-color: black;
+		height: 100%;
+
+	}
+		#search *{
+			color: white;
+			margin-left: 4px;
+		}
+		#search #skills{
+			width: 80%;
+		}
+
+	#separator{
+		background-color: #ECECEC;
+		position:fixed;
+		top: 50px;
+	}
+
+	#banner{
+		background-image: url('../images/1_scaled.jpg'); 
+		position:fixed;
+	}
+
+	#items .item {
+		height: 150px;
+		background-size: 100% 150px;
+		margin-bottom: 15px;
+		box-shadow: 4px 4px 5px #888888;
+
+	}
+	#items .item:hover{
+		box-shadow: 4px 9px 5px  #888888;
+		margin-top: -5px;
+        margin-bottom: 20px;
+		-webkit-transition: all 200ms linear;
+        -moz-transition: all 200ms linear;
+        -o-transition: all 200ms linear;
+        -ms-transition: all 200ms linear;
+        transition: all 200ms linear;
+		-webkit-animation: item_bounce 0.5s ease-in-out;
+		
+	}
+		.item *{
+			color: white !important;
+			text-shadow: -1px 1px #222222;
+		}
+		.item h2{
+			position: relative;
+			padding: 15px 0 0 10px;
+			margin: 0;
+		}
+		.item h4{
+			position: relative;
+			width: 94%;
+			margin: 0;
+			padding: 0;
+			float: right;
+			top: 5px;
+		}
+		.item img{
+			position: relative;
+			margin: 3px 0 3px 10px;
+			top: 5px;
+		}
+			.project h5{
+				text-align: right;
+				padding-right: 12px;
+			}
+			.project li{
+				text-align: right;
+				padding: 0 10px 0 0;
+			}
+			.project .two{
+				margin-right: 0px;
+				padding-top: 30px;
+			}
+				.project .two h4{
+					text-align: right;
+				}
+			.project .one{
+				padding-top: 20px;
+			}
+				.project .one img{
+					position: relative;
+					right: 12px;
+				}
+
+			.persons h3{
+				position: relative;
+				padding: 14px 0 0 10px;
+			}
+			.persons h5{
+				position: relative;
+				padding-left:10px;
+			}
+			.persons img{
+				float: right;
+				padding-top: 4px;
+				padding-right: 12px;
+			}
+
+	.title h2{
+		background-color: black;
+		color: white;
+		padding-left: 10px;
+	}
+	.title a{
+		color: white;
+	}
+		#video{
+			margin-top: 139px;
+		}
+
+	.project_element{
+		margin: 0 0 15px 0;
+
+	}
