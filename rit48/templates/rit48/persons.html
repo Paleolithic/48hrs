@@ -37,56 +37,10 @@
 <div class ='container' id='content'>
 	<div class='three columns' id='search'>
 		<h3>Filter By:</h3>
-		<form>			
-			<fieldset>			
-				<label for="">Type</label>
-				<label for="regularRadio">
-					<input type="radio" name="radios" id="regularRadio" value="radio 1" />
-					<span>People</span>
-				</label>
-				<label for="regularRadio">
-					<input type="radio" name="radios" id="regularRadio" value="radio 2" />
-					<span>Projects</span>
-				</label>
-			</fieldset>
-
-			<fieldset>	
-				<label for="">Skills</label>
-					<input type="text" placeholder="Search here..." id="skills" />
-				</label>
-			</fieldset>
-			
-			<fieldset>	
-				<label for="">Experience</label>
-				<label for="regularRadio">
-					<input type="radio" name="radios" id="regularRadio" value="radio 1" />
-					<span>&#60; 1 year</span>
-				</label>
-				<label for="regularRadio">
-					<input type="radio" name="radios" id="regularRadio" value="radio 2" />
-					<span>1-5 years</span>
-				</label>
-				<label for="regularRadio">
-					<input type="radio" name="radios" id="regularRadio" value="radio 2" />
-					<span>&#62; 5 years</span>
-				</label>
-			</fieldset>
-
-			<fieldset>
-				<label for="">Time Commitment</label>
-				<label for="regularRadio">
-					<input type="radio" name="radios" id="regularRadio" value="radio 1" />
-					<span>&#60; 1 year</span>
-				</label>
-				<label for="regularRadio">
-					<input type="radio" name="radios" id="regularRadio" value="radio 2" />
-					<span>1-5 years</span>
-				</label>
-				<label for="regularRadio">
-					<input type="radio" name="radios" id="regularRadio" value="radio 2" />
-					<span>&#62; 5 years</span>
-				</label>			
-			</fieldset>
+		<form action="/search/" method="post">			
+			{% csrf_token %}
+			{{ user_form.as_p }}
+			<input type="submit" value="Submit" />	
 		</form>
 	</div>
 	<div class='six columns' id='items'>

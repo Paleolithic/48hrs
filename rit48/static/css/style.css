@@ -111,7 +111,7 @@ a:hover{
 		}
 		.item img{
 			position: relative;
-			margin: 3px 0 3px 10px;
+			margin: 0 0 0 10px;
 			top: 5px;
 		}
 			.project h5{
@@ -122,6 +122,8 @@ a:hover{
 				text-align: right;
 				padding: 0 10px 0 0;
 			}
+
+			
 			.project .two{
 				margin-right: 0px;
 				padding-top: 30px;
@@ -132,9 +134,14 @@ a:hover{
 			.project .one{
 				padding-top: 20px;
 			}
+				.project .one li{
+					margin: 0;
+					padding:0;
+				}
 				.project .one img{
 					position: relative;
-					right: 12px;
+					
+					margin: 0 22px 3px 0;
 				}
 
 			.persons h3{

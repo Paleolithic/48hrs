@@ -104,9 +104,9 @@
 		<div class='thirteen columns alpha' >
 			<h2>{{ title }}</h2>
 			<h4>Software projects</h4>
-			<img src='../images/clipboard.png'/>
+			<img src="{% static 'images/clipboard.png' %}"/>
 			<h4>Team of 3</h4>
-			<img src='../images/team.png'/>
+			<img src="{% static 'images/team.png' %}"/>
 			<h5>{{ location }}</h5>
 		</div>
 		<div class='three columns omega clearfix'>
@@ -120,9 +120,11 @@
 				</ul>
 			</div>
 			<div class='one column omega'>
-				<img src='../images/pitch.png'/>
-				<img src='../images/description.png'/>
-				<img src='../images/team.png'/>
+				<ul>
+					<li><img src="{% static 'images/pitch.png' %}"/></li>
+					<li><img src="{% static 'images/description.png' %}"/></li>
+					<li><img src="{% static 'images/team.png'%}"/></li>
+				</ul>
 			</div>
 		</div>
 	</div>
