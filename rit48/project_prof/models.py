@@ -1,15 +1,15 @@
 from django.db import models
+from django.contrib.auth.models import User
 #from user_prof import TeamMember
 
-class PastProject(models.Model):
-        name = models.CharField(max_length=128)
-        url = models.URLField()
-        description = models.TextField()
-
-        def __unicode__(self):
-                return self.name
+class TeamMember(models.Model):
+	user = models.OneToOneField(User)
+	roleName = models.CharField(max_length=128)
+	roleDesc = models.TextField()
+	#requirements = models.ForeignKey()
 
 class ProjectPage(models.Model):
+	project_number = models.IntegerField(unique=True)
 	#splash bar
         title = models.CharField(max_length=128)
 	typeOfProject = None
@@ -17,9 +17,5 @@ class ProjectPage(models.Model):
 	#bottom
         pitchVid = models.URLField()
         description = models.TextField()
-        #team = models.ForeignKey(TeamMember)
-
-class Team(models.Model):
-	roleName = models.CharField(max_length=128)
-	roleDesc = models.TextField()
-#	requirements = models.ForeignKey()
+        team = models.ForeignKey(TeamMember)
+	organizer = models.OneToOneField(User)

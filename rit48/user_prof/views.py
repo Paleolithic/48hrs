@@ -24,11 +24,32 @@ def register(request):
 			{'user_form': user_form, 'registered': registered},
 			context)
 
+def user_login(request):
+	context = RequestContext(request)
 
-def userPage(request, user_name):
+	if request.method == 'POST':
+		username = request.POST['username']
+		password = request.POST['password']
+		user = authenticate(username=username, password=password)
+
+		if user is not None:
+			if user.is_active:
+				login(request, user)
+				return HttpResponse('/projects/')
+			else:
+				return HttpResponse("Your account is disabled")
+		else:
+			#"ethically" wrong? :p
+			print "Invalid login details: {0}, {1}".format(username, password)
+			return HttpResponse("Invaild login details")
+	else:
+		#this might change 
+		return render_to_response('/login.html', {}, context)
+
+def profile_page(request, user_number):
 	context = RequestContext(request)
 	try:
-		user = UserPage.objects.get(name=user_name)
+		user = UserPage.objects.get(user_number=user_number)
 
 		context_dict = {
 				'name': user.name,
@@ -46,3 +67,7 @@ def userPage(request, user_name):
 		pass
 
 	return render_to_response('rit48/user.html', context_dict, context)
+
+def projects(request):
+	context = RequestContext(request)
+	pass

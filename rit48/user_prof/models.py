@@ -15,7 +15,7 @@ class RankedSkill(models.Model):
 	endorse = models.IntegerField(default=0)
 
 class Rank(models.Model):
-	stars = models.IntegerField()
+	stars = models.IntegerField(default=0)
 	comment = models.TextField()
 
 class UserPage(models.Model):
