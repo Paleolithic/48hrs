@@ -1,5 +1,3 @@
-{% load static %}
-<!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
@@ -75,26 +73,22 @@
 
 <div id='header'>
 	<div class='container'>
-		<div class='four columns'>
+		<div class='four columns' id='site_name'>
 			<h2><a href='projects.html'>ProjectPond</a></h2>
 		</div>
-		<div class='three columns'>
+		<div class='three columns' id='search_box'>
 			<input type="text" placeholder="Search here..." id="regularInput" />
 		</div>
-		<div class='four columns nav'>
+		<div class='four columns nav' id='buttons'>
 			<ul>
-				<li><a href='projects.html' id='current'>Projects</a></li>
-				<li><a href='persons.html'>People</a></li>
+				<li><a href='projects.html'>Projects</a></li>
+				<li><a href='persons.html' id='current'>People</a></li>
 			</ul>
 		</div>
 		<div class='five columns nav' id='registration'>
 			<ul>
 				<li><a href='#'>Signup</a></li>
-				<li id="login">
-					<a id="login-trigger" href="#">
-						Login
-					</a>                     
-				</li>
+				<li><a href='#'>Login</a></li>
 			</ul>
 		</div>
 	</div>
@@ -105,64 +99,71 @@
 <div class ='container' id='content'>
 	<div class='sixteen columns' id='separator'><hr></div>
 
-	<div class='sixteen columns clearfix item project' id='banner' style="background-image: url({% static 'images/1_scaled.jpg' %}); ">
+	<div class='sixteen columns clearfix item page' id='banner' style="background-image: url({% static 'images/4.jpg' %}); ">
 		<div class='thirteen columns alpha' >
-			<h2>{{ title }}</h2>
-			<h4>Software projects</h4>
+			<h2>{{ name }}</h2>
+			<h4>Engineer</h4>
+			<img src="{% static 'images/skill/engineer.png' %}"width='24px' height='24px'/>
+			<h4>Rochester Institute of Technology</h4>
 			<img src="{% static 'images/clipboard.png' %}"/>
-			<h4>Team of 3</h4>
-			<img src="{% static 'images/team.png' %}"/>
 			<h5 class='location'>{{ location }}</h5>
 		</div>
-		<div class='three columns omega clearfix'  id='project'>
+		<div class='three columns omega clearfix' id='person'>
 			<div class='two columns alpha'>
-				
 				<ul>
-					<li><a href='#video'>Pitch</a></li>
-					<li><a href='#description'>Description</a></li>
-					
-					<li><a href='#team'>Team</a></li>
+					<li><a href='#bio'>Bio</a></li>
+					<li><a href='#skills'>Skills</a></li>
+					<li><a href='#projects'>Projects</a></li>
+					<li><a href='#reviews'>Reviews</a></li>
 				</ul>
 			</div>
 			<div class='one column omega'>
-				<ul>
-					<li><img src="{% static 'images/pitch.png' %}"/></li>
-					<li><img src="{% static 'images/description.png' %}"/></li>
-					<li><img src="{% static 'images/team.png'%}"/></li>
-				</ul>
+
+				<img src="{% static 'images/pitch.png' %}"/>
+				<img src="{% static 'images/description.png' %}"/>
+				<img src="{% static 'images/team.png' %}"/>
+				<img src="{% static 'images/team.png' %}"/>
+
 			</div>
 		</div>
 	</div>
 
-	<div class='sixteen columns title' id='video'>
-		<h2><a href='#video'>Video Pitch</a></h2>
+	<div class='sixteen columns title' id='bio'>
+		<h2><a href='#bio'>Biography</a></h2>
 	</div>
 	<div class='twelve columns offset-by-two project_element'>
-		<iframe width="560" height="315" src="{{ pitchVid }}" frameborder="0" style='z-index: 0;'allowfullscreen></iframe>
+		<p> {{ bio }}</p>
 	</div>
 
-	<div class='sixteen columns title' id='description'>
-		<h2><a href='#description'>Description</a></h2>
-	</div>
-	<div class='twelve columns offset-by-two project_element'>
-		<h4>{{ bio }}</h4>
-		<p> {{ description }}</p>
-	</div>
-
-	<div class='sixteen columns title' id='team'>
-		<h2><a href='#team'>Team</a></h2>
+	<div class='sixteen columns title' id='skills'>
+		<h2><a href='#skills'>Skills</a></h2>
 	</div>
 	<div class='twelve columns offset-by-two project_element'>
 		{% for entry in team %}
-		<h4>Role: {{ entry.role_name }}</h4>
-		<p> {{ entry.role_desc }}
-		</p>
-		<h5 style='padding-left: 25px;'>Required skills:</h5>
-		<ul style='padding-left: 35px;'>
-			<li>Javascript</li>
-			<li>HTML</li>
-			<li>CSS</li>
-		</ul>
+		<h4>Skill: {{ entry.skill }}</h4>
+		<h5> {{ entry.rank }} </h5>
+		<h5> {{ entry.endorse }}</h5>
+		{% endfor %}
+	</div>
+
+	<div class='sixteen columns title' id='projects'>
+		<h2><a href='#projects'>Projects</a></h2>
+	</div>
+	<div class='twelve columns offset-by-two project_element'>
+		{% for entry in projects %}
+		<h4>Project: {{ entry.name }}</h4>
+		<p> {{ entry.description }}</p>
+		<h6><a href='{{ entry.url}}'>{{entry.name}}</a></h6>
+		{% endfor %}
+	</div>
+
+	<div class='sixteen columns title' id='reviews'>
+		<h2><a href='#reviews'>Reviews</a></h2>
+	</div>
+	<div class='twelve columns offset-by-two project_element'>
+		{% for entry in rank %}
+		<h4>{{ entry.stars }}</h4>
+		<p> {{ entry.comment }}</p>
 		{% endfor %}
 	</div>
 </div>

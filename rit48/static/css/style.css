@@ -39,6 +39,9 @@ a:hover{
 			margin: 0 20px 0 0;
 			float: right;
 		}
+			#current{
+				border: 1px solid black;
+			}
 			#registration a{
 				font-size: 8pt;
 				color: #0096bb;
@@ -55,7 +58,7 @@ a:hover{
 					}
 					#inputs input{
 						margin: 5px 0 0 0;
-						
+
 					}
 
 				#submit{
@@ -88,7 +91,7 @@ a:hover{
 
 
 	#banner{
-		background-image: url('../images/1_scaled.jpg'); 
+		
 		position:fixed;
 	}
 
@@ -100,6 +103,10 @@ a:hover{
 	    #banner{
 	    	position: relative;
 
+	    }
+
+	    #video, #bio{
+	    	margin-top: 0 !important;
 	    }
 	}
 
@@ -141,38 +148,51 @@ a:hover{
 		}
 		.item img{
 			position: relative;
-			margin: 0 0 0 10px;
+			margin: 0 10px 0 10px;
 			top: 5px;
 		}
-			.project h5{
+			.location{
 				text-align: right;
-				padding-right: 12px;
+				padding: 0 12px 0 0;
 			}
-			.project li{
+			#project li, #person li{
 				text-align: right;
-				padding: 0 10px 0 0;
 			}
 
-			
-			.project .two{
+			#project .two{
 				margin-right: 0px;
 				padding-top: 30px;
 			}
-				.project .two h4{
+				#project .two h4{
 					text-align: right;
 				}
-			.project .one{
+
+			#project .one{
 				padding-top: 20px;
 			}
-				.project .one li{
+				#project .one li{
 					margin: 0;
 					padding:0;
+					text-align: right;
 				}
-				.project .one img{
+				#project .one img{
 					position: relative;
 					
 					margin: 0 22px 3px 0;
 				}
+
+			#person .two{
+				padding-top: 6px;
+			}
+			#person .one{
+				padding-top: 6px;
+			}
+			#person .one img{
+				margin: 0 22px 5px 0;
+			}
+			#person  li{
+				margin-top: 6px;
+			}
 
 			.persons h3{
 				position: relative;
@@ -188,6 +208,7 @@ a:hover{
 				padding-right: 12px;
 			}
 
+
 	.title h2{
 		background-color: black;
 		color: white;
@@ -196,11 +217,10 @@ a:hover{
 	.title a{
 		color: white;
 	}
-		#video{
+		#video, #bio{
 			margin-top: 139px;
 		}
 
 	.project_element{
 		margin: 0 0 15px 0;
-
 	}

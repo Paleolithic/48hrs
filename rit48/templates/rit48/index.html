@@ -31,7 +31,7 @@
 	}
 	#splash{
 		position: relative;
-		margin-top: 18%;
+		margin-top: 230px;
 		color: white;
 	}
 		#splash h1{
@@ -42,21 +42,6 @@
 			width: 100%;
 		}
 </style>
-<script>
-	$(document).ready(function(){
-		$("#login-content").hide();
-		$("#login-trigger").click(function(){
-			if($("#login-content").is(":visible")){	
-				$("#login-content").hide();
-				hidden = true;
-			}
-			else{
-				$("#login-content").show();
-				hidden = false;
-			}
-		});
-	});
-</script>
 <body>
 
 <div id="bg">
@@ -70,18 +55,18 @@
 		<div class='three columns'>
 			<input type="text" placeholder="Search here..." id="regularInput" />
 		</div>
-		<div class='three columns nav'>
+		<div class='four columns nav'>
 			<ul>
 				<li><a href='projects.html'>Projects</a></li>
 				<li><a href='persons.html'>People</a></li>
 			</ul>
 		</div>
-		<div class='six columns nav' id='registration'>
+		<div class='five columns nav' id='registration'>
 			<ul>
 				<li><a href='#'>Signup</a></li>
 				<li id="login">
 					<a id="login-trigger" href="#">
-						Log in <span>▼</span>
+						Login
 					</a>                     
 				</li>
 			</ul>
@@ -94,8 +79,8 @@
 <div class='container' id='splash'>
 	<div class='nine columns'>
 		<h1>ProjectPond</h1>
-		<h4>Find collaborators. Create collaborations.</h4>
-		<p>Swearem ipsum dolor arse amet, consectetur adipiscing elit. Aliquam scelerisque accumsan nisl, a mattis eros vestibulum et. Vestibulum placerat purus ut nibh aliquam ballbag. Aenean et tortor diam, id tempor elit. Vivamus sagittis ornare tempor. Nullam lacinia metus fuck diam tempor dick consequat ligula porttitor. Vestibulum mollis pellentesque hendrerit. Sed faucibus venenatis wee. Bastard ut gravida metus. Nam sed neque magna, in fermentum ligula. Praesent a diam tincidunt odio semper consequat.</p>
+		<h4>A bigger pond for bigger fish.</h4>
+		<p>Finding talented people can be hard, especially on your own.  ProjectPond brings skilled people like you together to collaborate on projects of all shapes and sizes.  Tell us what you’re good at and we’ll help you find something to do.  Or share your project with the world and build the team that you need make your idea into a reality.  User Reviews and Peer Endorsements let you know you’re getting the best possible teammates and allow you to hold each other accountable. Best of all you don’t have to pay for anything when you sign up with a student email!</p>
 	</div>
 	<div class='six columns offset-by-one'>
 		<h3>Register</h3>
