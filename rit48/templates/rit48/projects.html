@@ -8,28 +8,60 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/skeleton.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
-</head>
 
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<script>
+	$(document).ready(function(){
+		$("#login-content").hide();
+		$("#login-trigger").click(function(){
+			if($("#login-content").is(":visible")){	
+				$("#login-content").hide();
+				hidden = true;
+			}
+			else{
+				$("#login-content").show();
+				hidden = false;
+			}
+		});
+	});
+</script>
 <body>
 
 <div id='header'>
 	<div class='container'>
-		<div class='four columns' id='site_name'>
+		<div class='four columns'>
 			<h2><a href='projects.html'>ProjectPond</a></h2>
 		</div>
-		<div class='three columns' id='search_box'>
+		<div class='three columns'>
 			<input type="text" placeholder="Search here..." id="regularInput" />
 		</div>
-		<div class='four columns nav'>
+		<div class='three columns nav'>
 			<ul>
 				<li><a href='projects.html'>Projects</a></li>
 				<li><a href='persons.html'>People</a></li>
 			</ul>
 		</div>
-		<div class='five columns nav'>
+		<div class='six columns nav' id='registration'>
 			<ul>
 				<li><a href='#'>Signup</a></li>
-				<li><a href='#'>Login</a></li>
+				<li id="login">
+					<a id="login-trigger" href="#">
+						Log in <span>▼</span>
+					</a>
+					<div id="login-content">
+						<form class='loginform'>
+							<fieldset id="inputs">
+								<input id="username" type="email" name="Email" placeholder="Your email address" required>   
+								<input id="password" type="password" name="Password" placeholder="Password" required>
+							</fieldset>
+							<fieldset id="actions">
+								<input type="submit" id="submit" value="Log in">
+							</fieldset>
+							
+						</form>
+					</div>                     
+				</li>
 			</ul>
 		</div>
 	</div>

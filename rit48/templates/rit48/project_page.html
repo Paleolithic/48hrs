@@ -72,14 +72,20 @@
 	});
 
 	$(document).ready(function(){
-		$('#login-trigger').click(function(){
-			$(this).next('#login-content').slideToggle();
-			$(this).toggleClass('active');					
-			if ($(this).hasClass('active')) $(this).find('span').html('&#x25B2;')
-				else $(this).find('span').html('&#x25BC;')
-			})
-			
+		$("#login-content").hide();
+		$("#login-trigger").click(function(){
+			if($("#login-content").is(":visible")){	
+				$("#login-content").hide();
+				hidden = true;
+			}
+			else{
+				$("#login-content").show();
+				hidden = false;
+			}
+		});
 	});
+
+		
 </script>
 <body>
 
@@ -105,7 +111,7 @@
 						Log in <span>▼</span>
 					</a>
 					<div id="login-content">
-						<form>
+						<form class='loginform'>
 							<fieldset id="inputs">
 								<input id="username" type="email" name="Email" placeholder="Your email address" required>   
 								<input id="password" type="password" name="Password" placeholder="Password" required>
@@ -113,6 +119,7 @@
 							<fieldset id="actions">
 								<input type="submit" id="submit" value="Log in">
 							</fieldset>
+							
 						</form>
 					</div>                     
 				</li>
