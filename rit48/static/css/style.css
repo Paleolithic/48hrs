@@ -43,7 +43,25 @@ a:hover{
 				font-size: 8pt;
 				color: #0096bb;
 			}
-		
+				#login-trigger{
+					padding-top: 2px;
+					float: right;
+				}
+				#inputs, #actions{
+					margin-bottom: 5px;
+				}
+					#inputs *, #actions *{
+						
+						margin-bottom:2px; !important;
+					}
+					#inputs input{
+						margin: 5px 0 0 0;
+					}
+
+				#submit{
+					margin:0;
+					float:right;
+				}
 
 #content{
 	margin-top: 75px;
@@ -68,9 +86,21 @@ a:hover{
 		top: 50px;
 	}
 
+
 	#banner{
 		background-image: url('../images/1_scaled.jpg'); 
 		position:fixed;
+	}
+
+	@-moz-document url-prefix() {
+	    #separator {
+	        position: relative;
+	    }
+
+	    #banner{
+	    	position: relative;
+
+	    }
 	}
 
 	#items .item {

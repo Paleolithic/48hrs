@@ -8,6 +8,7 @@
 	<link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/skeleton.css' %}">
 	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/login.css' %}">
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
@@ -69,6 +70,16 @@
 	    }
 	  });
 	});
+
+	$(document).ready(function(){
+		$('#login-trigger').click(function(){
+			$(this).next('#login-content').slideToggle();
+			$(this).toggleClass('active');					
+			if ($(this).hasClass('active')) $(this).find('span').html('&#x25B2;')
+				else $(this).find('span').html('&#x25BC;')
+			})
+			
+	});
 </script>
 <body>
 
@@ -80,16 +91,31 @@
 		<div class='three columns'>
 			<input type="text" placeholder="Search here..." id="regularInput" />
 		</div>
-		<div class='four columns nav'>
+		<div class='three columns nav'>
 			<ul>
 				<li><a href='projects.html'>Projects</a></li>
 				<li><a href='persons.html'>People</a></li>
 			</ul>
 		</div>
-		<div class='five columns nav'>
+		<div class='six columns nav' id='registration'>
 			<ul>
 				<li><a href='#'>Signup</a></li>
-				<li><a href='#'>Login</a></li>
+				<li id="login">
+					<a id="login-trigger" href="#">
+						Log in <span>▼</span>
+					</a>
+					<div id="login-content">
+						<form>
+							<fieldset id="inputs">
+								<input id="username" type="email" name="Email" placeholder="Your email address" required>   
+								<input id="password" type="password" name="Password" placeholder="Password" required>
+							</fieldset>
+							<fieldset id="actions">
+								<input type="submit" id="submit" value="Log in">
+							</fieldset>
+						</form>
+					</div>                     
+				</li>
 			</ul>
 		</div>
 	</div>
