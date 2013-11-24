@@ -10,4 +10,4 @@ class ProjectForm(forms.ModelForm):
 	class Meta:
 		model = ProjectPage
 
-		fields('title', 'location', 'pitchvid', 'description')
+		fields = ('title', 'location', 'pitchvid', 'description')
