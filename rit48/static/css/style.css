@@ -51,11 +51,11 @@ a:hover{
 					margin-bottom: 5px;
 				}
 					#inputs *, #actions *{
-						
 						margin-bottom:2px; !important;
 					}
 					#inputs input{
 						margin: 5px 0 0 0;
+						
 					}
 
 				#submit{

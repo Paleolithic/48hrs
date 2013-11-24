@@ -80,8 +80,7 @@
 			<ul>
 				<li><a href='#'>Signup</a></li>
 				<li id="login">
-					<a id="login-trigger" href="#">
-						Log in <span>▼</span>
+					<a id="login-trigger" href="#">Log in <span>▼</span>
 					</a>                     
 				</li>
 			</ul>
@@ -92,21 +91,13 @@
 <hr>
 
 <div class='container' id='splash'>
-	<div class='nine columns'>
-		<h1>ProjectPond</h1>
-		<h4>Find collaborators. Create collaborations.</h4>
-		<p>Swearem ipsum dolor arse amet, consectetur adipiscing elit. Aliquam scelerisque accumsan nisl, a mattis eros vestibulum et. Vestibulum placerat purus ut nibh aliquam ballbag. Aenean et tortor diam, id tempor elit. Vivamus sagittis ornare tempor. Nullam lacinia metus fuck diam tempor dick consequat ligula porttitor. Vestibulum mollis pellentesque hendrerit. Sed faucibus venenatis wee. Bastard ut gravida metus. Nam sed neque magna, in fermentum ligula. Praesent a diam tincidunt odio semper consequat.</p>
-	</div>
-	<div class='six columns offset-by-one'>
-		<h3>Register</h3>
-		{% if registered %}
-			<strong>Thanks for registering!</strong>
-		{% else %}
+	
+	<div class='six columns offset-by-five'>
+		<h3>Login</h3>
 		<form action="" method="post">{% csrf_token %}
 			{{ user_form.as_p }}
 			<input type="submit" value="Submit" />
 		</form>
-		{% endif %}
 	</div>
 
 </div>
