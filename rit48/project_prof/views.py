@@ -14,7 +14,7 @@ def project_page(request, project_number):
 		if len(s) > 6:
 			for i in range(6):
 				first_s += (s[i]+" ")
-				s.pop()
+				s.pop(0)
 		else:
 			first_s = ' '.join(s)
 			s = []
