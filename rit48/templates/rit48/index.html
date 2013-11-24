@@ -49,26 +49,22 @@
 </div>
 <div id='header'>
 	<div class='container'>
-		<div class='four columns'>
-			<h2><a href='projects.html'>ProjectPond</a></h2>
+		<div class='four columns' id='site_name'>
+			<h2><a href="{% static 'mockups/projects.html' %}">ProjectPond</a></h2>
 		</div>
-		<div class='three columns'>
+		<div class='three columns' id='search_box'>
 			<input type="text" placeholder="Search here..." id="regularInput" />
 		</div>
-		<div class='four columns nav'>
+		<div class='four columns nav' id='buttons'>
 			<ul>
-				<li><a href='projects.html'>Projects</a></li>
-				<li><a href='persons.html'>People</a></li>
+				<li><a href="{% static 'mockups/projects.html' %}">Projects</a></li>
+				<li><a href="{% static 'mockups/persons.html' %}">People</a></li>
 			</ul>
 		</div>
 		<div class='five columns nav' id='registration'>
 			<ul>
-				<li><a href='#'>Signup</a></li>
-				<li id="login">
-					<a id="login-trigger" href="#">
-						Login
-					</a>                     
-				</li>
+				<li><a href='index.html'>Signup</a></li>
+				<li><a href='login.html'>Login</a></li>
 			</ul>
 		</div>
 	</div>
