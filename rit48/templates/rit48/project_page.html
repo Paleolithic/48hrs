@@ -1,0 +1,163 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+	<title>The Boyle Broth</title>
+	<link rel="stylesheet" type="text/css" href="../css/base.css">
+	<link rel="stylesheet" type="text/css" href="../css/layout.css">
+	<link rel="stylesheet" type="text/css" href="../css/skeleton.css">
+	<link rel="stylesheet" type="text/css" href="../css/style.css">
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+</head>
+<script>
+	// By Chris Coyier & tweaked by Mathias Bynens
+
+	$(function() {
+
+		// Find all YouTube videos
+		var $allVideos = $("iframe[src^='http://www.youtube.com']"),
+
+		    // The element that is fluid width
+		    $fluidEl = $(".project_element");
+
+		// Figure out and save aspect ratio for each video
+		$allVideos.each(function() {
+
+			$(this)
+				.data('aspectRatio', this.height / this.width)
+				
+				// and remove the hard coded width/height
+				.removeAttr('height')
+				.removeAttr('width');
+
+		});
+
+		// When the window is resized
+		// (You'll probably want to debounce this)
+		$(window).resize(function() {
+
+			var newWidth = $fluidEl.width();
+			
+			// Resize all videos according to their own aspect ratio
+			$allVideos.each(function() {
+
+				var $el = $(this);
+				$el
+					.width(newWidth)
+					.height(newWidth * $el.data('aspectRatio'));
+
+			});
+
+		// Kick off one resize to fix all videos on page load
+		}).resize();
+
+	});
+
+	$(function() {
+	  $('a[href*=#]:not([href=#])').click(function() {
+	    if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
+	      var target = $(this.hash);
+	      target = target.length ? target : $('[name=' + this.hash.slice(1) +']');
+	      if (target.length) {
+	        $('html,body').animate({
+	          scrollTop: target.offset().top -225
+	        }, 1000);
+	        return false;
+	      }
+	    }
+	  });
+	});
+</script>
+<body>
+
+<div id='header'>
+	<div class='container'>
+		<div class='four columns'>
+			<h2><a href='projects.html'>ProjectPond</a></h2>
+		</div>
+		<div class='three columns'>
+			<input type="text" placeholder="Search here..." id="regularInput" />
+		</div>
+		<div class='four columns nav'>
+			<ul>
+				<li><a href='projects.html'>Projects</a></li>
+				<li><a href='persons.html'>People</a></li>
+			</ul>
+		</div>
+		<div class='five columns nav'>
+			<ul>
+				<li><a href='#'>Signup</a></li>
+				<li><a href='#'>Login</a></li>
+			</ul>
+		</div>
+	</div>
+</div>
+
+<hr>
+
+<div class ='container' id='content'>
+	<div class='sixteen columns' id='separator'><hr></div>
+
+	<div class='sixteen columns clearfix item project' id='banner'>
+		<div class='thirteen columns alpha' >
+			<h2>{{ title }}</h2>
+			<h4>Software projects</h4>
+			<img src='../images/clipboard.png'/>
+			<h4>Team of 3</h4>
+			<img src='../images/team.png'/>
+			<h5>{{ location }}</h5>
+		</div>
+		<div class='three columns omega clearfix'>
+			<div class='two columns alpha'>
+				
+				<ul>
+					<li><a href='#video'>Pitch</a></li>
+					<li><a href='#description'>Description</a></li>
+					
+					<li><a href='#team'>Team</a></li>
+				</ul>
+			</div>
+			<div class='one column omega'>
+				<img src='../images/pitch.png'/>
+				<img src='../images/description.png'/>
+				<img src='../images/team.png'/>
+			</div>
+		</div>
+	</div>
+
+	<div class='sixteen columns title' id='video'>
+		<h2><a href='#video'>Video Pitch</a></h2>
+	</div>
+	<div class='twelve columns offset-by-two project_element'>
+		<iframe width="560" height="315" src="{{ pitchVid }}" frameborder="0" allowfullscreen></iframe>
+	</div>
+
+	<div class='sixteen columns title' id='description'>
+		<h2><a href='#description'>Description</a></h2>
+	</div>
+	<div class='twelve columns offset-by-two project_element'>
+		<h4>{{ bio }}</h4>
+		<p> {{ description }}</p>
+	</div>
+
+	<div class='sixteen columns title' id='team'>
+		<h2><a href='#team'>Team</a></h2>
+	</div>
+	<div class='twelve columns offset-by-two project_element'>
+		{% for entry in team %}
+		<h4>Role: {{ entry.role_name }}</h4>
+		<p> {{ entry.role_desc }}
+		</p>
+		<h5 style='padding-left: 25px;'>Required skills:</h5>
+		<ul style='padding-left: 35px;'>
+			<li>Javascript</li>
+			<li>HTML</li>
+			<li>CSS</li>
+		</ul>
+	</div>
+</div>
+
+</body>
+</html>
