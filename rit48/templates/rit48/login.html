@@ -42,21 +42,6 @@
 			width: 100%;
 		}
 </style>
-<script>
-	$(document).ready(function(){
-		$("#login-content").hide();
-		$("#login-trigger").click(function(){
-			if($("#login-content").is(":visible")){	
-				$("#login-content").hide();
-				hidden = true;
-			}
-			else{
-				$("#login-content").show();
-				hidden = false;
-			}
-		});
-	});
-</script>
 <body>
 
 <div id="bg">
@@ -70,17 +55,18 @@
 		<div class='three columns'>
 			<input type="text" placeholder="Search here..." id="regularInput" />
 		</div>
-		<div class='three columns nav'>
+		<div class='four columns nav'>
 			<ul>
 				<li><a href='projects.html'>Projects</a></li>
 				<li><a href='persons.html'>People</a></li>
 			</ul>
 		</div>
-		<div class='six columns nav' id='registration'>
+		<div class='five columns nav' id='registration'>
 			<ul>
 				<li><a href='#'>Signup</a></li>
 				<li id="login">
-					<a id="login-trigger" href="#">Log in <span>▼</span>
+					<a id="login-trigger" href="#">
+						Login
 					</a>                     
 				</li>
 			</ul>
@@ -91,7 +77,6 @@
 <hr>
 
 <div class='container' id='splash'>
-	
 	<div class='six columns offset-by-five'>
 		<h3>Login</h3>
 		<form action="" method="post">
@@ -103,7 +88,6 @@
 			<input type="submit" value="Submit" />
 		</form>
 	</div>
-
 </div>
 
 </body>
