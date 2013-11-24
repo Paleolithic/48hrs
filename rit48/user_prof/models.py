@@ -20,6 +20,7 @@ class Rank(models.Model):
 
 class UserPage(models.Model):
 	user = models.OneToOneField(User)
+	user_number = models.IntegerField()
 
 	#top right
 	major = models.CharField(max_length=128)
@@ -27,7 +28,7 @@ class UserPage(models.Model):
 	#top left
         bio = models.TextField()
 	available = models.CharField(max_length=256)
-	dreamTeam = models.ForeignKey('UserPage')
+	dreamTeam = models.ForeignKey(User, related_name="dream team")
 	#middle
         projects = models.ForeignKey('PastProject')
 	skills = models.ForeignKey('RankedSkill')

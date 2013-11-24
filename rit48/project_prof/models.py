@@ -8,6 +8,9 @@ class TeamMember(models.Model):
 	roleDesc = models.TextField()
 	#requirements = models.ForeignKey()
 
+	def __unicode__(self):
+		return self.user.username
+
 class ProjectPage(models.Model):
 	project_number = models.IntegerField(unique=True)
 	#splash bar
@@ -19,3 +22,6 @@ class ProjectPage(models.Model):
         description = models.TextField()
         team = models.ForeignKey(TeamMember)
 	organizer = models.OneToOneField(User)
+
+	def __unicode__(self):
+		return self.title
