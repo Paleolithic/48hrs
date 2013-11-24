@@ -4,10 +4,10 @@
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 	<title>The Boyle Broth</title>
-	<link rel="stylesheet" type="text/css" href="../css/base.css">
-	<link rel="stylesheet" type="text/css" href="../css/layout.css">
-	<link rel="stylesheet" type="text/css" href="../css/skeleton.css">
-	<link rel="stylesheet" type="text/css" href="../css/style.css">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/base.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/layout.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/skeleton.css' %}">
+	<link rel="stylesheet" type="text/css" href="{% static 'css/style.css' %}">
 
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 </head>
@@ -156,6 +156,7 @@
 			<li>HTML</li>
 			<li>CSS</li>
 		</ul>
+		{% endfor %}
 	</div>
 </div>
 

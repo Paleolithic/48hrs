@@ -7,20 +7,32 @@ from project_prof.forms import ProjectForm
 def project_page(request, project_number):
 	context = RequestContext(request)
 	try:
-		#project = ProjectPage.objects.get(project_number=project_number)
+		project = ProjectPage.objects.get(project_number=project_number)
+		s = project.description.split(' ')
+		first_s = ""
+
+		if len(s) > 6:
+			for i in range(6):
+				first_s += first_s+s[i]+" "
+				s.pop()
+		else:
+			first_s = ' '.join(s)
+			s = []
+
 
 		context_dict = {
 				'number': project_number,
-				#'title': project.title,
-				#'location': project.location,
-				#'pitchVid': project.pitchVid,
-				#'description': project.description,
-				#'team': project.team_set.all(),
-				#'organizer': project.organizer,
+				'title': project.title,
+				'location': project.location,
+				'pitchVid': project.pitchVid,
+				'bio': first_s,
+				'description': ' '.join(s),
+				'team': project.team.__class__.objects.all(),
+				'organizer': project.organizer,
 				}
 	except ProjectPage.DoesNotExist:
 		pass
-	return render_to_response('rit48/project.html', context_dict, context)
+	return render_to_response('rit48/project_page.html', context_dict, context)
 
 def start_project(request):
 	context = RequestContext(request)
@@ -37,6 +49,6 @@ def start_project(request):
 	else:
 		project_form = ProjectForm()
 	return render_to_response(
-			'rit48/projects.html',
+			'rit48/project.html',
 			{'project_form': project_form, 'created': created},
 			context)
