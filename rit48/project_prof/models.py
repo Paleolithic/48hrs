@@ -12,7 +12,6 @@ class TeamMember(models.Model):
 		return self.user.username
 
 class ProjectPage(models.Model):
-	project_number = models.IntegerField(unique=True)
 	#splash bar
         title = models.CharField(max_length=128)
 	typeOfProject = None
@@ -20,8 +19,8 @@ class ProjectPage(models.Model):
 	#bottom
         pitchVid = models.URLField()
         description = models.TextField()
-        team = models.ForeignKey(TeamMember)
-	organizer = models.OneToOneField(User)
+        team = models.ForeignKey(TeamMember, blank=True, null=True)
+	organizer = models.OneToOneField(User, blank=True, null=True)
 
 	def __unicode__(self):
 		return self.title

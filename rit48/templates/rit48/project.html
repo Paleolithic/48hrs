@@ -5,10 +5,10 @@
 	</head>
 
 	<body>
-		{% if number %}
-			{{ number }}
-		{% else %}
-			no number
-		{% endif %}
+		<form action="" method="post">
+		{% csrf_token %}
+		{{ project_form.as_p }}
+		<input type="submit" value="submit"/>
+		</form>
 	</body>
 </html>
