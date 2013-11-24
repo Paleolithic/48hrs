@@ -71,7 +71,7 @@ def profile_page(request, user_number):
 	except UserPage.DoesNotExist:
 		pass
 
-	return render_to_response('rit48/user.html', context_dict, context)
+	return render_to_response('rit48/person_page.html', context_dict, context)
 
 def projects(request):
 	context = RequestContext(request)
