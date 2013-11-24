@@ -20,7 +20,6 @@ class Rank(models.Model):
 
 class UserPage(models.Model):
 	user = models.OneToOneField(User)
-	user_number = models.IntegerField()
 
 	#top right
 	major = models.CharField(max_length=128)

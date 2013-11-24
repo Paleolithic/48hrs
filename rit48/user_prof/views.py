@@ -1,6 +1,8 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render_to_response
+from django.contrib.auth import authenticate, login, logout
+from django.contrib.auth.models import User
 from user_prof.forms import UserForm
 from user_prof.models import UserPage
 
@@ -16,7 +18,7 @@ def register(request):
 			user.save()
 			registered = True
 		else:
-			print user.forms.errors
+			print user_form.errors
 	else:
 		user_form = UserForm()
 	return render_to_response(
@@ -35,7 +37,9 @@ def user_login(request):
 		if user is not None:
 			if user.is_active:
 				login(request, user)
-				return HttpResponse('/projects/')
+				guy = UserPage.objects.get(user=user)
+				s = "/user/"+str(guy.user_number)
+				return HttpResponseRedirect(s)
 			else:
 				return HttpResponse("Your account is disabled")
 		else:
@@ -44,23 +48,24 @@ def user_login(request):
 			return HttpResponse("Invaild login details")
 	else:
 		#this might change 
-		return render_to_response('/login.html', {}, context)
+		return render_to_response('rit48/login.html', {}, context)
 
 def profile_page(request, user_number):
 	context = RequestContext(request)
 	try:
-		user = UserPage.objects.get(user_number=user_number)
+		user = User.objects.get(pk=int(user_number))
+		user_page = UserPage.objects.get(user=user)
 
 		context_dict = {
-				'name': user.user.username,
-				'major': user.major,
-				'location': user.location,
-				'bio': user.bio,
-				'available': user.available,
-				'team': user.user.__class__.objects.all(),
-				'projects': user.projects.__class__.objects.all(),
-				'skills': user.skills.__class__.objects.all(),
-				'rank': user.ranking.__class__.objects.all(),
+				'name': user.username,
+				'major': user_page.major,
+				'location': user_page.location,
+				'bio': user_page.bio,
+				'available': user_page.available,
+				'team': user_page.user.__class__.objects.all(),
+				'projects': user_page.projects.__class__.objects.all(),
+				'skills': user_page.skills.__class__.objects.all(),
+				'rank': user_page.ranking.__class__.objects.all(),
 				}
 
 	except UserPage.DoesNotExist:

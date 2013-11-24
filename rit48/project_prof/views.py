@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.template import RequestContext
 from django.shortcuts import render_to_response
 from project_prof.models import ProjectPage
@@ -7,7 +7,7 @@ from project_prof.forms import ProjectForm
 def project_page(request, project_number):
 	context = RequestContext(request)
 	try:
-		project = ProjectPage.objects.get(project_number=project_number)
+		project = ProjectPage.objects.get(id=project_number)
 		s = project.description.split(' ')
 		first_s = ""
 
@@ -27,8 +27,8 @@ def project_page(request, project_number):
 				'pitchVid': project.pitchVid,
 				'bio': first_s,
 				'description': ' '.join(s),
-				'team': project.team.__class__.objects.all(),
-				'organizer': project.organizer,
+				#'team': project.team.__class__.objects.all(),
+				#'organizer': project.organizer,
 				}
 	except ProjectPage.DoesNotExist:
 		pass
@@ -40,10 +40,14 @@ def start_project(request):
 	created = False
 	if request.method == 'POST':
 		project_form = ProjectForm(data=request.POST)
+		setattr(project_form, 'organizer', request.user)
+		print project_form.organizer
 		if project_form.is_valid():
 			project = project_form.save()
 			project.save()
 			created = True
+			
+			return HttpResponseRedirect('/project/'+str(project.id)+'/')
 		else:
 			print project_forms.errors
 	else:
