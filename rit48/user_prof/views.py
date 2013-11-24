@@ -52,15 +52,15 @@ def profile_page(request, user_number):
 		user = UserPage.objects.get(user_number=user_number)
 
 		context_dict = {
-				'name': user.name,
+				'name': user.user.username,
 				'major': user.major,
 				'location': user.location,
 				'bio': user.bio,
 				'available': user.available,
-				'team': user.UserPage_set.all(),
-				'projects': user.PastProject_set.all(),
-				'skills': user.RankedSkill_set.all(),
-				'rank': user.Rank_set.all(),
+				'team': user.user.__class__.objects.all(),
+				'projects': user.projects.__class__.objects.all(),
+				'skills': user.skills.__class__.objects.all(),
+				'rank': user.ranking.__class__.objects.all(),
 				}
 
 	except UserPage.DoesNotExist:
